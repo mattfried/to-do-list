@@ -1,0 +1,27 @@
+// switch to mixins or something so that
+// i can alter value at media queries break points
+$gutter: 1em;
+$gutter-sm: 1.5em;
+$gutter-med: 2em;
+$gutter-xl: 2.5em;
+
+$color-primary: #41ade5;
+$color-secondary: #0687cc;
+$grey: rgb(175, 175, 175);
+$grey-light: rgba(175, 175, 175, 0.5);
+
+// google fonts
+/*
+font-family: 'Didact Gothic', sans-serif;
+font-family: 'Ubuntu', sans-serif;
+*/
+
+$font-primary: 'Ubuntu', sans-serif;
+$font-secondary: 'Didact Gothic', sans-serif;
+
+
+// media queries
+$break-sm: 500px;
+$break-med: 700px;
+$break-lrg: 1000px;
+$break-xl: 1200px;

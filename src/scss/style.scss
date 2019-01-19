@@ -1,0 +1,267 @@
+// Imports
+@import 'imports';
+
+
+/* ================
+    Styles
+================ */
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  background: $color-primary;
+  position: relative;
+  z-index: 1;
+  color: white;
+  width: 92%;
+  min-height: 2em;
+  margin: 40px auto;
+  text-align: center;
+  border-radius: 0.5em;
+
+  @media screen and (min-width: $break-med) {
+    width: 88%;
+    margin: 75px auto;
+    font-size: 1.25em;
+  }
+
+  @media screen and (min-width: $break-lrg) {
+    width: 80%;
+    font-size: 1.5em;
+  }
+
+  &:before,
+  &:after {
+    background: inherit;
+    content: '';
+    display: block;
+    height: 2em;
+    left: 0;
+    position: absolute;
+    right: 0;
+    z-index: -1;
+    -webkit-backface-visibility: hidden; // for Chrome Windows
+    border-radius: 0.5em;
+  }
+
+  &:before {
+    top: 0;
+    transform: skewY(-1.5deg);
+    transform-origin: 0 100%;
+    border-radius: 0.5em;
+
+  }
+
+  &:after {
+    bottom: 0;
+    transform: skewY(-1.5deg);
+    transform-origin: 100% 0;
+    border-radius: 0.5em;
+  }
+}
+
+header {
+  @extend %flex-header;
+  margin: auto $gutter;
+  padding-top: 1em;
+  padding-bottom: 0.625em;
+  font-family: $font-primary;
+  border-bottom: dashed 2px rgba(200, 200, 200, 0.5);
+
+  // REPLACE THIS WITH AN EXTEND OR PARTIAL OR SOMETHING??
+  @media screen and (min-width: $break-sm) {
+    margin: auto $gutter-sm;
+  }
+
+  @media screen and (min-width: $break-med) {
+    margin: auto $gutter-med;
+    padding-top: 1.25em;
+    padding-bottom: 0.75em;
+  }
+
+  @media screen and (min-width: $break-xl) {
+    margin: auto $gutter-xl;
+    padding-top: 2em;
+  }
+
+  h1, h2 {
+    margin: 0;
+  }
+
+  h1 {
+    font-size: 1.825em;
+
+    @media screen and (min-width: $break-lrg) {
+      font-size: 2em;
+    }
+  }
+
+  h2 {
+
+    @media screen and (min-width: $break-lrg) {
+      font-size: 1.75em;
+    }
+  }
+}
+
+.task {
+  &-wrapper {
+    margin: 0 $gutter;
+    font-family: $font-secondary;
+
+    // REPLACE THIS WITH AN EXTEND OR PARTIAL OR SOMETHING??
+    @media screen and (min-width: $break-sm) {
+      margin: auto $gutter-sm;
+    }
+
+    @media screen and (min-width: $break-med) {
+      margin: auto $gutter-med;
+    }
+
+    @media screen and (min-width: $break-xl) {
+      margin: auto $gutter-xl;
+    }
+  }
+
+  &-item {
+    display: flex;
+    flex-direction: row;
+    padding: 0.25em 0 0.25em 0.5em;
+    margin: 0.325em 0;
+    align-items: center;
+    border-bottom: solid 0.25px $grey-light;
+    border-radius: 0.5em;
+    background-color: rgb(250, 250, 250);
+    color: black;
+
+    @media screen and (min-width: $break-med) {
+      padding: 0.25em 0.125em 0.25em 0.625em;
+    }
+
+    @media screen and (min-width: $break-lrg) {
+      padding: 0.5em 0.25em 0.5em 0.75em;
+    }
+
+    &:only-child {
+      border-bottom: none;
+    }
+
+    &:first-child {
+      border-top: solid 1px $grey;
+      margin-top: 1em;
+    }
+
+    &:last-child {
+      border-bottom: solid 1px $grey;
+      margin-bottom: 1em;
+    }
+  }
+
+  &-delete {
+    margin-right: 0.5em;
+    padding-right: 0.25em;
+    color: rgba(100, 100, 100, 0.5);
+
+    &:hover {
+      color: complement($color-primary);
+      cursor: pointer;
+    }
+
+    &:active {
+      color: invert($color-primary);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &-text {
+    text-align: left;
+  }
+}
+
+form {
+  @extend %flex-form;
+  margin: 0;
+}
+
+//REVISE THESE ONCE TEXT IS INSERTED TO INPUT ELEMENTS
+//(MAINLY THE 'Add Item' BUTTON)
+.input {
+  flex-grow: 2;
+  background-color: rgba(255, 255, 255, 0.625);
+  border: none;
+  border-radius: 0.25em;
+  padding: 0 0.5em;
+  font-size: 1em;
+  line-height: 2em;
+  font-family: $font-primary;
+  -webkit-appearance: none;
+
+  @media screen and (max-width: $break-sm) {
+    width: 90%;
+    margin-bottom: 0.5em;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 5px 10px 3px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.button {
+  padding: 0.625em 1.25em;
+  margin-left: 0.5em;
+  border: none;
+  border-radius: 0.5em;
+  color: white;
+  background-color: $color-secondary;
+  cursor: pointer;
+  font-size: 1em;
+  font-family: $font-primary;
+  -webkit-appearance: none;
+
+  @media screen and (max-width: $break-sm) {
+    width: 90%;
+    margin-left: 0;
+  }
+
+  &:hover {
+    background-color: darken($color-secondary, 15%);
+    box-shadow: 0 5px 10px 3px rgba(0, 0, 0, 0.25);
+  }
+
+  &:active {
+    background-color: darken($color-secondary, 25%);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+footer {
+  margin: auto $gutter;
+  padding-bottom: 1em;
+  padding-top: 0.625em;
+  border-top: dashed 2px rgba(200, 200, 200, 0.5);
+
+  // REPLACE THIS WITH AN EXTEND OR PARTIAL OR SOMETHING??
+  @media screen and (min-width: $break-sm) {
+    margin: auto $gutter-sm;
+  }
+
+  @media screen and (min-width: $break-med) {
+    margin: auto $gutter-med;
+    padding-top: 0.75em;
+    padding-bottom: 1.25em;
+  }
+
+  @media screen and (min-width: $break-xl) {
+    margin: auto $gutter-xl;
+    padding-bottom: 2em;
+  }
+}

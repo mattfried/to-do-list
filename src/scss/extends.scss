@@ -1,0 +1,18 @@
+@import 'variables';
+
+%flex-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+%flex-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  @media screen and (max-width: $break-sm) {
+    flex-direction: column;
+  }
+}
